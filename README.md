@@ -1,37 +1,61 @@
-# HK Scientific Calculator
-A professional, modular scientific calculator built in Python and Tkinter — packaged as a standalone executable with custom theming and extensive functionality.
+# HK-Calculator
 
----
+A modular **scientific calculator built with Python and Tkinter**, featuring advanced mathematical functions, calculation history, themes, memory operations, and keyboard controls.
 
-## 🎯 Table of Contents
+## Features
 
-- [Features](#-features)
-- [Screenshots](#-screenshots)
-- [Installation & Usage](#-installation--usage)
-- [Keyboard Shortcuts](#-keyboard-shortcuts)
-- [Advanced Usage](#-advanced-usage)
-- [Building from Source](#-building-from-source)
-- [Troubleshooting](#-troubleshooting)
-- [Project Structure](#-project-structure)
-- [Contributing](#-contributing)
-- [License](#-license)
+- Basic arithmetic operations
+- Scientific functions including `sin`, `cos`, `tan`, `log`, `ln`, and square root
+- Powers, factorials, constants, and additional mathematical operations
+- Primary and secondary function modes
+- Degree and radian modes
+- Memory operations (`M+`, `M-`, `MR`, `MC`)
+- Calculation history
+- Light and dark themes
+- Keyboard shortcuts
+- Responsive interface
+- Standalone Windows executable support
 
----
+## Project Structure
 
-## ⭐ Features
+```text
+HK-Calculator/
+├── docs/
+│   ├── HK.ico
+│   ├── HK_png.png
+│   └── screenshots/
+│
+├── src/
+│   ├── main.py
+│   ├── logic.py
+│   ├── utils.py
+│   └── yi_config.py
+│
+├── .gitignore
+└── README.md
+```
 
-- 🧮 Scientific & Mathematical: `sin`, `cos`, `tan`, `log`, `ln`, `√`, `xⁿ`, `π`, `e`, `!`, and more  
-- 🔄 Dual Function Modes: Switch primary/secondary functions with the `2nd` button  
-- 💾 Memory Operations: `M+`, `M-`, `MR`, `MC`, with on-screen indicator  
-- 📜 History Panel: View and reuse past calculations  
-- 🧠 Smart Input: Auto-parentheses and syntax validation  
-- 🎨 Themes: Light/Dark mode toggle (`q`)  
-- 🖥️ Responsive UI: Dynamic layout & font resizing  
-- ⌨️ Keyboard First: Full hotkey support  
-- 📐 Rad/Deg Toggle: Angle unit switching (`R`)  
-- 📦 Standalone Executable: No Python install required  
+The application is separated into modules for the user interface, calculator logic, utility functions, and configuration to keep the code organized and maintainable.
 
----
+## Run from Source
+
+### Requirements
+
+- Python 3
+- Tkinter
+
+Clone the repository:
+
+```bash
+git clone https://github.com/alihk1684/HK-Calculator.git
+cd HK-Calculator
+```
+
+Run the application:
+
+```bash
+python src/main.py
+```
 
 ## 🖼️ Screenshots
 
@@ -39,65 +63,36 @@ A professional, modular scientific calculator built in Python and Tkinter — pa
 ![Dark Mode + History](docs/dark_mode_history_panel.png)
 ![Light Mode + History](docs/light_mode_history_panel.png)
 
----
+## Keyboard Controls
 
-## 💾 Installation & Usage
+| Key | Action |
+|---|---|
+| `0-9` | Enter digits |
+| `+ - * /` | Basic operations |
+| `Enter` / `=` | Calculate |
+| `Backspace` | Delete character |
+| `Esc` | Clear |
+| `r` | Toggle radians/degrees |
+| `q` | Toggle theme |
+| `h` | Toggle history |
 
-### 🪟 Windows (Executable)
+Additional shortcuts are available for scientific functions.
 
-1. Download `HK_Calculator.exe` from [Releases](https://github.com/alihk1684/HK_Calculator/releases)  
-2. Double-click to run — no installation required
+## Technical Highlights
 
----
+- Modular Python architecture
+- Tkinter GUI development
+- Mathematical expression processing
+- Input and syntax validation
+- Event-driven programming
+- Keyboard event handling
+- Dynamic UI and font resizing
+- Application state management
+- PyInstaller executable packaging
 
-## 🐍 Run from Source
+## Build Windows Executable
 
-```bash
-git clone https://github.com/yourusername/HK_Calculator.git
-cd HK_Calculator
-pip install -r requirements.txt  # If applicable
-python src/main.py
-```
----
-
-## ⌨️ Keyboard Shortcuts
-| Key        | Action                  |
-|------------|--------------------------|
-| 0–9, `.`   | Input digits/decimal     |
-| `+ - * /`  | Basic operations         |
-| `Enter` / `=` | Compute result        |
-| `Backspace` | Delete character       |
-| `Esc`      | Clear all (AC)           |
-| `2nd`      | Toggle 2ⁿᵈ functions     |
-| `r`        | Radians / Degrees        |
-| `q`        | Toggle theme             |
-| `h`        | Toggle history panel     |
-
-Function Shortcuts:
-
-| Key | Primary Function | Key | 2ⁿᵈ Function |
-|-----|------------------|-----|--------------|
-| `s` | sin(             | `S` | sinh(        |
-| `c` | cos(             | `C` | cosh(        |
-| `t` | tan(             | `T` | tanh(        |
-| `g` | log(             | `G` | logy(        |
-| `l` | ln(              | `(` | (            |
-| `x` | x²               | `X` | x³           |
-
-and more, press H to see hot keys.
-
----
-
-## 🚀 Advanced Usage
-
-- 🖱️ Click a history item to reuse its expression
-- 📋 Right-click on the result to copy it to clipboard
-- 🎨 Customize themes in `yi_config.py`
-- 💡 Enable persistent history by modifying `logic.py`
-
----
-
-## 🛠️ Building from Source
+The application can be packaged using PyInstaller:
 
 ```bash
 pyinstaller --noconfirm --onefile --windowed ^
@@ -106,55 +101,22 @@ pyinstaller --noconfirm --onefile --windowed ^
   --add-data "docs/HK_png.png;docs" ^
   src/main.py
 ```
-- 🗃️ Output: dist/HK_Calculator.exe
-- 🧹 Cleanup: Delete build/, dist/, *.spec if desired
 
----
+The generated executable will be available in the `dist/` directory.
 
-## ⚠️ Troubleshooting
+## Future Improvements
 
-| Issue |	Solution |
-|-------|----------|
-| iconphoto() error |	Ensure it's called right after Tk() creation |
-| Missing images | Use resource_path() for packaging compatibility |
-| Missing modules |	Run: pip install -r requirements.txt (if you use one) |
-| Broken EXE | Make sure paths are relative and correct in --add-data; rebuild EXE |
+- Persistent calculation history
+- Additional scientific functions
+- Improved expression parsing
+- More customization options
+- Automated testing
 
----
+## Author
 
-##📁 Project Structure
+**Ali Heidari**  
+Electrical Engineering student.
 
-```css
-HK_Calculator/
-├── docs/
-│   ├── HK.ico
-│   ├── HK_png.png
-│   └── screenshots/
-├── src/
-│   ├── main.py
-│   ├── logic.py
-│   ├── utils.py
-│   └── yi_config.py
-├── HK_Calculator.exe
-└── README.md
-```
+## License
 
----
-
-## 👤 Author
-Ali Heidari
-
----
-
-## 🤝 Contributing
-
-- Pull requests welcome!
-- Fork this repo
-- Create a new feature branch
-- Commit your changes
-- Open a pull request
-
----
-
-## 📝 License
-This project is licensed under the MIT License.
+This project is available under the MIT License.
